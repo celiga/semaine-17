@@ -1,3 +1,23 @@
 <h1><%= @post.title %></h1>
 <div><%= @post.content %></div>
+
+<h2>Commentaires :</h2>
+<% if @comments.size > 0 %>
+  <ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <p>Auteur : <%= comment.author %></p>
+      <p><%= comment.content %></p>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_tag "/posts/#{@post.id}", method: "post" do %>
+<input type="hidden" name="post_id" value="<%= @post.id %>"/><br>
+  <input type="text" name="author" placeholder="Auteur" /><br>
+  <textarea name="content" cols="30" rows="10" placeholder="Commentaire"></textarea><br>
+  <input type="submit" value="Ajouter un commentaire" />
+<% end %>  
+      
 <p><a href="/">Retourner à l’index</a></p>
