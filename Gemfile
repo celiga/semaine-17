@@ -47,3 +47,6 @@ end
 
 # Pagination
 gem 'kaminari'
+
+# USe Bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
